@@ -1,7 +1,8 @@
 public class Book {
     private String bookName;
+     int yearOfRelease;
 
-    int yearOfRelease;
+     private String Author;
 
 
 
@@ -17,6 +18,8 @@ public class Book {
     public int getYearOfRelease (){
         return this.yearOfRelease;
     }
+
+    public String getAuthor () { return this.Author; }
 
     public void setYearOfRelease (int yearOfRelease) {
         this.yearOfRelease = yearOfRelease;
