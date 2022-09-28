@@ -1,31 +1,23 @@
 import java.util.Objects;
 
 public class Author {
-
-
-    private String authorName;
-
-
-    private String authorSurname;
-
-    private String bookName;
-    int yearOfRelease;
-
-
+    private final String authorName;
+    private  String authorSurname;
     public Author (String authorName, String authorSurname) {
         this.authorName = authorName;
         this.authorSurname = authorSurname;
     }
 
-    public String getAuthorName() {
+    public  String getAuthorName() {
         return this.authorName;
     }
 
     public String getAuthorSurname() {
         return this.authorSurname;
     }
+    public String getFullName () {return authorName + " " + authorSurname; }
 
-    public Author(String authorName) {
+    private Author(String authorName) {
         this.authorName = authorName;
     }
 
@@ -34,12 +26,7 @@ public class Author {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return yearOfRelease == author.yearOfRelease && Objects.equals(authorName, author.authorName) && Objects.equals(authorSurname, author.authorSurname) && Objects.equals(bookName, author.bookName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(authorName, authorSurname, bookName, yearOfRelease);
+        return Objects.equals(authorName, author.authorName) && Objects.equals(authorSurname, author.authorSurname);
     }
 
     @Override
@@ -47,9 +34,13 @@ public class Author {
         return "Author{" +
                 "authorName='" + authorName + '\'' +
                 ", authorSurname='" + authorSurname + '\'' +
-                ", bookName='" + bookName + '\'' +
-                ", yearOfRelease=" + yearOfRelease +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(authorName, authorSurname);
+    }
+
 }
 
